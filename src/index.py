@@ -1,7 +1,9 @@
-import discord, datetime
 from discord.ext import commands
 from urllib import parse, request
-import re
+from dotenv import load_dotenv
+import discord, datetime, os, re
+
+load_dotenv()
 
 bot = commands.Bot(command_prefix='>', description="Thisis a helper bot")
 
@@ -40,5 +42,5 @@ async def on_ready():
     await bot.change_presence(activity=discord.Streaming(name="Tutorials", url="http://www.twitch.tv/accountname"))
     print("My Bot is Ready")
 
-bot.run('ODYyNDcwMDgwNjA4MDc1ODM2.YOYz2w.b7_Nkg4VAHwJwYGj3XrhfHxtqI8')
+bot.run(os.getenv("TOKEN_BOT"))
 
